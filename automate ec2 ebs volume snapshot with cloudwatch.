@@ -1,0 +1,17 @@
+Step 1: Create a Rule
+Create a rule that takes snapshots on a schedule. You can use a rate expression or a cron expression to specify the schedule.
+go to clouldwatch console
+In the navigation pane, choose Events, Create rule.
+For Event Source, do the following:
+Choose Schedule.
+Choose Fixed rate of and specify the schedule interval (for example, 5 minutes). Alternatively, choose Cron expression and specify a cron expression (for example, every 15 minutes Monday through Friday, starting at the current time).
+For Targets, choose Add target and then select EC2 CreateSnapshot API call. You may have to scroll up in the list of possible targets to find EC2 CreateSnapshot API call.
+For Volume ID, type the volume ID of the targeted Amazon EBS volume.
+Choose Create a new role for this specific resource. The new role grants the target permissions to access resources on your behalf.
+Choose Configure details.
+For Rule definition, type a name and description for the rule.
+Choose Create rule.
+Step2: Test the rule
+open the ec2 console
+In the navigation pane, choose Elastic Block Store, Snapshots.
+verify that the first snapshot occur
