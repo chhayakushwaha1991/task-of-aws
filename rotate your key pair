@@ -1,0 +1,18 @@
+1> open the ec2 console and go to network and security section and click on key pair.
+2> as u are in key pair section create a key pair
+3> add a name to your key pair with RSA key pair type and .pem extension
+4> as the key pair is created save the private key now create an instance with that key pair
+5 As the instance is in running status take ssh of that instance
+6> As u have login into th instance go to .ssh directory where public key is stored as authorized-keys
+ #sudo cd .ssh
+ #ls
+ #cat authorized_keys
+7> copy the contents of public key starting from ssh-rsa to name of key
+8> open note pad an copy your public key into it.
+9> if u want to copy ur same key to other region the go to that region in ec2 console and goto key pair 
+10> as u are in key pair section go to actions and click on import key-pair
+11> A new console will open give name to ur key pair and browse the public key u saved in above step and click on import key pair 
+12> U will see the new key pair is created in other region as well
+13> create an instance in that region where u have imported your key with the new key
+14> take ssh of that instance with the same private key that u saved in step 4 .
+15> U can import the key to any other region or other account as well
