@@ -1,0 +1,23 @@
+1>In the console go to IAM service protal and create an user.
+2>create a policy with the json format
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "VisualEditor0",
+            "Effect": "Deny",
+            "Action": [
+                "s3:CreateBucket",
+                "s3:ListBucket"
+            ],
+            "Resource": "arn:aws:s3:::chhayakibucket"
+        },
+        {
+            "Sid": "VisualEditor1",
+            "Effect": "Deny",
+            "Action": "s3:ListAllMyBuckets",
+            "Resource": "*"
+        }
+    ]
+}
+3> add these policy to the user and it wont let u access the bucket.
