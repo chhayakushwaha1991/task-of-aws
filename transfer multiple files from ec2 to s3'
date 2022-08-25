@@ -1,1 +1,24 @@
-
+1>create an ubuntu instance and take ssh of it
+2>update the repository of ubuntu
+ sudo apt update -y
+3>Install s3fs from online software repositories
+ sudo apt install s3fs -y
+4> You need to generate the access key ID and secret access key in the AWS web interface for your account (IAM user). The IAM user must have S3 full access
+5>Go back to the Ubuntu console to create a configuration file for storing the AWS access key and secret access key needed to mount an S3 bucket with S3FS.
+  The command to do this is:
+ echo ACCESS_KEY:SECRET_ACCESS_KEY > ~/.passwd-s3fs
+6>Check whether the keys were written to the file:
+ cat ~/.passwd-s3fs 
+7> Set correct permissions for the passwd-s3fs file where the access keys are stored:
+   chmod 600 ~/.passwd-s3fs
+8>create a directory that will act as a mounting point for your s3 bucket.
+ mkdir ~/s3-bucket
+9>create a bucket named chhayakibucket and upload an object into it
+10> Use the following command to set the bucket name, the path to the directory used as the mount point and the file that contains 
+   the AWS access key and secret access key.
+s3fs chhayakibucket ~/s3-bucket -o passwd_file=~/.passwd-s3fs
+11> the bucket is mounted to check the mount point
+df -h |grep bucket
+12> Let’s check the contents of the directory to which the bucket has been mounted:
+  ls -al ~/s3-bucket 
+13> u will see the object in the above directory that was in s3 bucket to see more u can add more files in that directory and u will see it in s3 bucket in console.  
